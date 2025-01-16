@@ -1,0 +1,53 @@
+@use "./../../variables";
+
+.timeline {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+
+  @media screen and (min-width: variables.$maxWidth + 'px') {
+    justify-content: center;
+    border-left: 0.5px solid variables.$border;
+    border-right: 0.5px solid variables.$border;
+    position: relative;
+    z-index: 1;
+
+    &::after {
+      content: '';
+      background: variables.$border;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0.5px;
+      z-index: 1;
+      height: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media screen and (max-width: variables.$maxWidth + 'px') {
+  .bottom-slider {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    .swiper-container {
+      display: flex;
+      flex-direction: column;
+
+      .swiper {
+        flex: 1 1 auto;
+      }
+    }
+
+    .swiper-slides-container {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding-bottom: 0 !important;
+    }
+  }
+}

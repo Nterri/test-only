@@ -1,0 +1,92 @@
+@use "./../../variables";
+
+.swiper-container {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+  position: relative;
+  z-index: 62;
+
+  .swiper-container-prev, .swiper-container-next {
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 15px variables.$textColorBlue;
+    background: transparent;
+    cursor: pointer;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+    position: relative;
+
+    &::before, &::after {
+      content: '' !important;
+      position: absolute;
+      width: 2px;
+      background: variables.$yearColor;
+      top: 50%;
+      left: 50%;
+      @include variables.responsive(4, 12, 'height');
+    }
+    @include variables.responsive(25, 50, 'width');
+    @include variables.responsive(25, 50, 'height');
+  }
+
+  .swiper-container-prev {
+    &::before {
+      transform: translate(-50%, -20%) rotate(-45deg);
+    }
+    &::after {
+      transform: translate(-50%, -80%) rotate(45deg);
+    }
+  }
+  .swiper-container-next {
+    &::before {
+      transform: translate(-50%, -20%) rotate(45deg);
+    }
+    &::after {
+      transform: translate(-50%, -80%) rotate(-45deg);
+    }
+  }
+  .swiper-button-disabled { display: none !important; };
+
+  .swiper-pagination {
+    display: none;
+  }
+
+  @media screen and (max-width: variables.$maxWidth + 'px') {
+    .swiper-container-prev, .swiper-container-next {
+      display: none !important;
+    }
+    .swiper-wrapper {
+      padding-bottom: 100px;
+    }
+
+    .swiper-pagination {
+      display: block;
+      @include variables.responsive(0, 25, 'bottom');
+    }
+  }
+
+  .swiper-pagination-bullet {
+    transition: all 0.3s;
+    background: variables.$border;
+    margin: 0 5px !important;
+    width: 6px !important;
+    height: 6px !important;
+    &.swiper-pagination-bullet-active {
+      background: variables.$textColor;
+    }
+  }
+}
+
+.swiper {
+  opacity: 1;
+  transition: all 0.5s;
+  max-width: 100%;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(10px);
+}

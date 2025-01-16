@@ -1,0 +1,16 @@
+@use "./../../variables";
+
+.before-decoration {
+  @media screen and (min-width: 480px) {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(to bottom, variables.$yearColor, variables.$endColor);
+    }
+  }
+}

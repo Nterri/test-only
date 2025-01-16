@@ -1,0 +1,24 @@
+@use "./../../variables";
+
+.years-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  @media screen and (min-width: variables.$maxWidth + 'px') {
+    flex: 1 1 auto;
+
+    &::after {
+      z-index: 1;
+      content: '';
+      background: variables.$border;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 0.5px;
+      width: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

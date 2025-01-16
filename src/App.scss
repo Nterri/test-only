@@ -1,0 +1,72 @@
+@use "variables";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: #{variables.$maxWidth}px;
+  padding: 0 #{variables.$padding}px;
+  margin: 0 auto;
+}
+
+.fullscreen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pt-sans-bold {
+  font-family: "PT Sans";
+  font-weight: 700;
+}
+
+.pt-sans-regular {
+  font-family: "PT Sans";
+  font-weight: 500;
+}
+
+.textColor {
+  color: variables.$textColor;
+}
+.startColor {
+  color: variables.$startColor;
+}
+.endColor {
+  color: variables.$endColor;
+}
+.yearColor {
+  color: variables.$yearColor;
+}
+
+.swiper-next {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;left: 10px;
+  transform: translateY(-50%);
+}
+.swiper-prev {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;left: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}

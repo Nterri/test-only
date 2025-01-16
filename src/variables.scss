@@ -1,0 +1,28 @@
+$textColor: #42567A;
+$textColorBlue: rgba(56, 119, 238, 0.3);
+$textColorBlur: rgba(66, 86, 122, 0.5);
+$border: #ADB5C6;
+$startColor: #5D5FEF;
+$endColor: #EF5DA8;
+$yearColor: #3877EE;
+$borderCircle: rgba(48, 62, 88, 0.5);
+$white: #ffffff;
+
+$maxWidth: 1440;
+$minWidth: 320;
+
+$padding: 15;
+
+@mixin responsive($min, $max, $name: 'font-size') {
+  @media (min-width: $minWidth + 'px') and (max-width: $maxWidth + 'px') {
+    $addSize: $max - $min;
+    $maxWidth: $maxWidth - 320;
+    #{$name}: calc(#{$min + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+  }
+  @media (max-width: $minWidth + 'px') {
+    #{$name}: #{$min + 'px'};
+  }
+  @media (min-width: $maxWidth + 'px') {
+    #{$name}: #{$max + 'px'};
+  }
+}

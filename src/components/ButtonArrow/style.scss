@@ -1,0 +1,73 @@
+@use "./../../variables";
+
+.button_arrow {
+  border-radius: 50%;
+  border: 1px solid variables.$textColorBlur;
+  background: transparent;
+  cursor: pointer;
+  @include variables.responsive(25, 50, 'width');
+  @include variables.responsive(25, 50, 'height');
+
+  span {
+    position: relative;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      background: variables.$textColor;
+      top: 50%;
+      left: 50%;
+      @include variables.responsive(4, 12, 'height');
+    }
+  }
+
+  &.top {
+    span {
+      &::before {
+        transform: translate(150%, -50%) rotate(-45deg);
+      }
+      &::after {
+        transform: translate(-200%, -50%) rotate(45deg);
+      }
+    }
+  }
+  &.left {
+    span {
+      &::before {
+        transform: translate(-50%, -20%) rotate(-45deg);
+      }
+      &::after {
+        transform: translate(-50%, -80%) rotate(45deg);
+      }
+    }
+  }
+  &.bottom {
+    span {
+      &::before {
+        transform: translate(150%, -50%) rotate(45deg);
+      }
+      &::after {
+        transform: translate(-200%, -50%) rotate(-45deg);
+      }
+    }
+  }
+  &.right {
+    span {
+      &::before {
+        transform: translate(-50%, -20%) rotate(45deg);
+      }
+      &::after {
+        transform: translate(-50%, -80%) rotate(-45deg);
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+    span {
+      &::before, &::after {
+        background: variables.$border;
+      }
+    }
+  }
+}
